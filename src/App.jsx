@@ -1,13 +1,13 @@
 // import logo from "./logo.svg";
-import Practice from "./components/Practice.jsx";
-import Course from "./components/project1/Course.jsx";
+// import Practice from "./components/Practice.jsx";
+import CourseApp from "./project1/CourseApp.jsx";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       {/* <Practice /> */}
-      <Course />
+      <CourseApp />
     </div>
   );
 }

@@ -10,13 +10,24 @@ function CourseApp() {
   }
   function addCourse() {
     document.querySelector("#courseInput").value = "";
-  setCourseList( [...courseList, newCourse] );
+    document.querySelector("#courseInput").focus();
+    const course = {
+      id:
+        courseList.length === 0 ? 1 : courseList[courseList.length - 1].id + 1,
+      name: newCourse,
+      isCompleted: false,
+    };
+    setCourseList([...courseList, course]);
   }
-  function deleteCourse(courseName) {
-    const newCourseList = courseList.filter((course) => {
-      if (course === courseName) return false
-      else return true
-    })
+  function deleteCourse(courseID) {
+    document.querySelector("#courseInput").focus();
+    setCourseList(courseList.filter((course) => courseID !== course.id));
+  }
+  function completeCourse(courseID) {
+    const newCourseList = courseList.map((course) => {
+      if (course.id === courseID) return { ...course, isCompleted: !course.isCompleted };
+      else return course;
+    });
     setCourseList(newCourseList);
   }
   return (
@@ -25,12 +36,18 @@ function CourseApp() {
         <input type="text" id="courseInput" onChange={inputChange}></input>
         <button onClick={addCourse}>add Course</button>
       </div>
-      <div className="list">
-
-        </div>
-        {courseList.map((course, index) => {
-        return <Course key={index} name={course} delete={()=> deleteCourse(course)} />;
-        })}
+      <div className="list"></div>
+      {courseList.map((course, index) => {
+        return (
+          <Course
+            key={index}
+            name={course.name}
+            delete={() => deleteCourse(course.id)}
+            complete={() => completeCourse(course.id)}
+            borderColor={course.isCompleted === true ?  "5px solid #66f20f" : ""}
+          />
+        );
+      })}
     </div>
   );
 }

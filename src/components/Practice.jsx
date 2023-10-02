@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect,useState } from "react";
 
 const Practice = (props) => {
+  // useState
     const [count, setCount] = useState(0);
     const [textLive, setTextLive] = useState();
     const [showText, setShowText] = useState(true);
@@ -24,8 +25,22 @@ const Practice = (props) => {
     function setChange_color() {
       setChangeColor(textColor === "blue" ? "red" : "blue")
     }
+    // useEffect
+    const [text, setText] = useState("");
+    useEffect(() => {
+      console.log("Effect mount");
+
+      return () => {
+        console.log("Effect un mount");
+      }
+    }, []);
+    useEffect(() => {
+      console.log("Effect update");
+    }, [text]);
+
       return (
         <div className="Practice">
+          {/* useState */}
           <button onClick={increasEvent}>increat</button>
           <button onClick={decreaseEvent}>decrease</button>
           <button onClick={setTo0Event}>set to 0</button>
@@ -39,6 +54,9 @@ const Practice = (props) => {
           <br />
           <button onClick={setChange_color}>change Color</button>
           <h1 style={{color: textColor}}>Hossein Ghafouri</h1>
+          <br />
+          {/* useEffect */}
+          show
         </div>
       );
 }

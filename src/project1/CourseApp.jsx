@@ -25,7 +25,8 @@ function CourseApp() {
   }
   function completeCourse(courseID) {
     const newCourseList = courseList.map((course) => {
-      if (course.id === courseID) return { ...course, isCompleted: !course.isCompleted };
+      if (course.id === courseID)
+        return { ...course, isCompleted: !course.isCompleted };
       else return course;
     });
     setCourseList(newCourseList);
@@ -36,18 +37,22 @@ function CourseApp() {
         <input type="text" id="courseInput" onChange={inputChange}></input>
         <button onClick={addCourse}>add Course</button>
       </div>
-      <div className="list"></div>
-      {courseList.map((course, index) => {
-        return (
-          <Course
-            key={index}
-            name={course.name}
-            delete={() => deleteCourse(course.id)}
-            complete={() => completeCourse(course.id)}
-            borderColor={course.isCompleted === true ?  "5px solid #66f20f" : ""}
-          />
-        );
-      })}
+
+      <div className="list">
+        {courseList.map((course, index) => {
+          return (
+            <Course
+              key={index}
+              name={course.name}
+              delete={() => deleteCourse(course.id)}
+              complete={() => completeCourse(course.id)}
+              borderColor={
+                course.isCompleted === true ? "5px solid #66f20f" : ""
+              }
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

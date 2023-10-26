@@ -1,7 +1,7 @@
 function Erorr(params) {
-    return (
+    return(
         <div className="Erorr">
-            <h1>Page Not Found :( </h1>
+            <h3>Page is Not Found :(</h3>
         </div>
     )
 }

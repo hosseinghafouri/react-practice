@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 function Header(params) {
   return (
     <div className="Header">
-      <nav className="header_nav">
+      <nav>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/profile/:name">Profile</Link>
+        <Link to="/About">About</Link>
+        <Link to="/Profile">Profile</Link>
       </nav>
     </div>
   );

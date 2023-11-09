@@ -6,6 +6,7 @@ function Header(params) {
         <Link to="/">Home</Link>
         <Link to="/About">About</Link>
         <Link to="/Profile">Profile</Link>
+        <Link to="/Register">Register</Link>
       </nav>
     </div>
   );

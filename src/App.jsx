@@ -5,6 +5,7 @@ import Header from './pages/Header.jsx';
 import Home from './pages/content/Home.jsx';
 import Profile from './pages/content/Profile.jsx';
 import About from './pages/content/About.jsx';
+import Register from './pages/Register.jsx';
 import Erorr from './pages/Erorr.jsx';
 import Footer from './pages/Footer.jsx';
 import { useState, createContext } from 'react';
@@ -27,6 +28,7 @@ function App() {
         <Route  path='/' element={<Home />}/>
         <Route  path='/profile/:name?/:id?' element={<Profile />}/>
         <Route  path='/about' element={<About />}/>
+        <Route  path='/register' element={<Register />}/>
         <Route  path='*' element={<Erorr />}/>          
       </Routes>
       <Footer />
